@@ -1,17 +1,83 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/html">
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Greeting</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Radiologie-Institut - Startseite</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f8f9fa; }
+        .hero-section { background: #0056b3; color: white; padding: 60px 0; margin-bottom: 30px; border-radius: 0 0 20px 20px; }
+        .card { transition: transform 0.2s; border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .card:hover { transform: translateY(-5px); }
+        .icon-box { font-size: 2rem; margin-bottom: 15px; color: #0056b3; }
+    </style>
 </head>
 <body>
-<div class="container">
-    <h1>Hallo</h1>
-    Datum: <span th:text="${today}"></span>
-    <div>
-        <a href="/patient/list">patient list</a>
+
+<div class="hero-section text-center">
+    <div class="container">
+        <h1 class="display-4 fw-bold">Radiologie-Institut</h1>
+        <p class="lead" th:text="'Willkommen! Heute ist der ' + ${today}"></p>
     </div>
 </div>
+
+<div class="container">
+    <div class="row g-4 justify-content-center">
+        <!-- Patienten registrieren -->
+        <div class="col-md-5 col-lg-4">
+            <div class="card h-100 text-center p-4">
+                <div class="card-body">
+                    <div class="icon-box">👤</div>
+                    <h5 class="card-title">Patientenregistrierung</h5>
+                    <p class="card-text">Erfassen Sie neue Patienten im System.</p>
+                    <a href="/patient/add" class="btn btn-primary w-100">Patient registrieren</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Patientenliste -->
+        <div class="col-md-5 col-lg-4">
+            <div class="card h-100 text-center p-4">
+                <div class="card-body">
+                    <div class="icon-box">📋</div>
+                    <h5 class="card-title">Patientenliste</h5>
+                    <p class="card-text">Alle registrierten Patienten anzeigen.</p>
+                    <a href="/patient/list" class="btn btn-outline-primary w-100">Liste anzeigen</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reservierung erfassen -->
+        <div class="col-md-5 col-lg-4">
+            <div class="card h-100 text-center p-4">
+                <div class="card-body">
+                    <div class="icon-box">📅</div>
+                    <h5 class="card-title">Neue Reservierung</h5>
+                    <p class="card-text">Untersuchungszeit auf einem Gerät buchen.</p>
+                    <a href="/reservation/add" class="btn btn-success w-100">Reservierung erfassen</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reservierungsliste -->
+        <div class="col-md-5 col-lg-4">
+            <div class="card h-100 text-center p-4">
+                <div class="card-body">
+                    <div class="icon-box">🖥️</div>
+                    <h5 class="card-title">Geräte-Belegung</h5>
+                    <p class="card-text">Reservierungen pro Gerät einsehen.</p>
+                    <a href="/reservation/list" class="btn btn-outline-success w-100">Belegung prüfen</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="text-center mt-5 py-4 text-muted">
+    <p>&copy; 2026 Radiologie-Institut</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
